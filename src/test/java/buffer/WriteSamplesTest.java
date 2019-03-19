@@ -17,5 +17,10 @@ public class WriteSamplesTest {
         assertThat("Hello!").isEqualTo(buffer.readUtf8());
         buffer.writeUtf8("SRE at Google.", 3, 5);
         assertThat(" a").isEqualTo(buffer.readUtf8());
+        
+        buffer.writeUtf8("Hello");
+        buffer.writeUtf8(", eric", 0, 2);
+        buffer.writeUtf8("Network.");
+        assertThat("Hello, Network.").isEqualTo(buffer.readUtf8());
     }
 }
